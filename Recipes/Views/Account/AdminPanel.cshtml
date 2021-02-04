@@ -1,0 +1,19 @@
+﻿@model Recipes.Models.AddToRoleModel
+@{
+    ViewBag.Title = "AdminPanel";
+}
+
+<h2>Add Role to User</h2>
+
+@using (Html.BeginForm("AdminPanel", "Account"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email)
+
+    </div>
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.SelectedRole, new SelectList(Model.Roles), new { @class="form-control" })
+    </div>
+    <button type="submit">Add Role to User</button>
+}
